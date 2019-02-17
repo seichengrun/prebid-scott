@@ -1,0 +1,171 @@
+<html>
+
+<head>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script async src="//www.googletagservices.com/tag/js/gpt.js"></script>
+    <script async src="//acdn.adnxs.com/prebid/not-for-prod/1/prebid.js"></script>
+    <script>
+
+        var PREBID_TIMEOUT = 1000;
+        var gpttimeoutTIMEOUT = 100;
+
+        //define ad units
+        var adUnits = [{
+            code: 'div-gpt-ad-1541099278327-0',
+            sizes: [728, 90],
+            //define bid adaptorsx
+            bids: [{
+                bidder: 'appnexus',
+                params: { tagId: '14320273' }
+            }]
+        }, {
+            code: 'div-gpt-ad-1541099313686-0',
+            sizes: [300, 600],
+            bids: [{
+                bidder: 'appnexus',
+                params: { tagId: '14320317' }
+            }]
+        }, {
+            code: 'div-gpt-ad-1541099332610-0',
+            sizes: [160, 600],
+            bids: [{
+                bidder: 'appnexus',
+                params: { tagId: '14320319' }
+            }]
+        }, {
+            code: 'div-gpt-ad-1541099362553-0',
+            sizes: [728, 90],
+            bids: [{
+                bidder: 'appnexus',
+                params: { tagId: '14320300' }
+            }]
+        },
+        //multi format, banner and outstream video
+        {
+            code: "div-gpt-ad-1548876488470-0",
+            mediaTypes: {
+                banner: {
+                    sizes: [[300, 250]],
+                    video: {
+                    context: "outstream",
+                    playerSize: [[300, 250]]
+                }
+                }
+            },
+            bids: [{
+                bidder: "appnexus",
+                params: { tagId: '14872227' }
+            }]
+        }
+        ];
+
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+
+        var pbjs = pbjs || {};
+        pbjs.que = pbjs.que || [];      
+
+        pbjs.que.push(function(x=>() {
+            pbjs.addAdUnits(adUnits);
+            pbjs.requestBids({
+                bidsBackHandler: initAdserver,
+                timeout: PREBID_TIMEOUT
+            });
+        });}) 
+
+        function initAdserver() {
+            if (pbjs.initAdserverSet) return;
+            pbjs.initAdserverSet = true;
+            googletag.cmd.push(function () {
+                pbjs.que.push(function () {
+                    pbjs.setTargetingForGPTAsync();
+                    googletag.pubads().requestBids
+                });
+            });
+        }
+        setTimeout(function () {
+            initAdserver();
+        }, GPT_TIMEOUT);
+
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/19968336/zzz_jer_tp_top_728x90', [728, 90], 'div-gpt-ad-1541099278327-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/19968336/zzz_jer_to_middle_300x600', [300, 600], 'div-gpt-ad-1541099313686-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/19968336/zzz_jer_tp_rr_160x600', [160, 600], 'div-gpt-ad-1541099332610-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/19968336/zzz_jer_tp_bottom_728x90', [728, 90], 'div-gpt-ad-1541099362553-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/19968336/zzz_jer_multi_format', [[1, 1], [300, 250], 'fluid', [360, 360]], 'div-gpt-ad-1548876488470-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id='container'>
+
+        <h1>Pre-Bid Test Site: running PBJS 1.38.0</h1>
+        <p>Note: DFP is setup only 1 granularity level $1.00<p>
+                <p>All Sellers and Buyers are in seat 958.<p>
+
+                        <hr>
+                        <p>Preview:: multi format tag: outstream or banner</p>
+
+                        <div id='div-gpt-ad-1548876488470-0'>
+                            <script>
+                                googletag.cmd.push(function () { googletag.display('div-gpt-ad-1548876488470-0'); });
+                            </script>
+                        </div>
+
+                        <hr>
+                        <p>Preview:: Top 728x90</p>
+                        <div id='div-gpt-ad-1541099278327-0' style='height:90px; width:728px;'>
+                            <script>
+                                googletag.cmd.push(function () { googletag.display('div-gpt-ad-1541099278327-0'); });
+                            </script>
+                        </div>
+
+                        <hr>
+                        <p>Preview:: Middle 300x600</p>
+                        <div id='div-gpt-ad-1541099313686-0' style='height:600px; width:300px;'>
+                            <script>
+                                googletag.cmd.push(function () { googletag.display('div-gpt-ad-1541099313686-0'); });
+                            </script>
+                        </div>
+
+                        <hr>
+                        <p>Preview:: 160x600</p>
+                        <div id='div-gpt-ad-1541099332610-0' style='height:600px; width:160px;'>
+                            <script>
+                                googletag.cmd.push(function () { googletag.display('div-gpt-ad-1541099332610-0'); });
+                            </script>
+                        </div>
+
+                        <hr>
+                        <p>Preview:: Bottom 728x90</p>
+                        <div id='div-gpt-ad-1541099362553-0' style='height:90px; width:728px;'>
+                            <script>
+                                googletag.cmd.push(function () { googletag.display('div-gpt-ad-1541099362553-0'); });
+                            </script>
+                        </div>
+
+    </div>
+</body>
+
+</html>
